@@ -1,0 +1,550 @@
+/* Reset básico e definição da fonte principal para todo o site */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Define a largura máxima do conteúdo central */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Estilo geral para títulos de seção (usado em "Artigos Relacionados") */
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 60px;
+  color: #333;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #ff6b35;
+}
+
+/* Header - A barra de navegação no topo */
+.header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  position: fixed; /* Fica fixo no topo ao rolar */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 15px 0;
+}
+.header .container {
+  /* Layout do header */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo img {
+  /* Logo no header */
+  height: 50px;
+  border-radius: 50%;
+}
+.nav {
+  /* Navegação (links) */
+  display: flex;
+  gap: 30px;
+}
+.nav-link {
+  /* Estilo de cada link da navegação */
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+.nav-link:hover {
+  color: #ff6b35;
+}
+
+/* Footer - O rodapé da página */
+.footer {
+  padding: 60px 0;
+  background: #ff6b35;
+  color: white;
+  text-align: center;
+}
+.footer-content h3 {
+  /* Título no footer */
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.footer-content h3 a {
+  color: white;
+  text-decoration: none;
+}
+.footer-content p {
+  /* Texto de copyright */
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.9);
+}
+.footer-logo img {
+  /* Logo no footer */
+  height: 50px;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+/* ===== Início do Bloco de Estilos para Artigos Individuais ===== */
+
+/* Breadcrumb - A navegação "Início > Blog > Título do Artigo" */
+.breadcrumb {
+  padding: 20px 0;
+  background: #f8f9fa;
+  border-bottom: 1px solid #eee;
+}
+.breadcrumb-nav {
+  /* Estilo do texto do breadcrumb */
+  font-size: 14px;
+  color: #666;
+}
+.breadcrumb-nav a {
+  color: #ff6b35;
+  text-decoration: none;
+}
+
+/* Article Header - A seção grande no topo com o título e a imagem principal */
+.article-header {
+  padding: 60px 0;
+  background: linear-gradient(135deg, #fff5f0 0%, #ffe8d6 100%);
+}
+.article-header-content {
+  /* Conteúdo de texto dentro do header do artigo */
+  max-width: 800px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+.article-category-badge {
+  /* O selo "Viagem" */
+  display: inline-block;
+  background: #ff6b35;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.article-header .article-title {
+  /* O título principal H1 */
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+.article-subtitle {
+  /* O parágrafo de subtítulo */
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+.article-meta {
+  /* A área que contém autor e estatísticas */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.article-author {
+  /* Bloco do autor (avatar + nome) */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.author-avatar {
+  /* Avatar do autor */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.author-info {
+  /* Nome e data */
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.author-name,
+.article-date {
+  /* Estilos específicos para nome e data */
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+.article-stats {
+  /* Bloco de estatísticas (tempo de leitura, views) */
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  color: #666;
+}
+.article-hero-image {
+  /* A imagem grande de destaque */
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.article-hero-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* Article Content Layout - A estrutura principal com sidebar e conteúdo */
+.article-content {
+  padding: 80px 0;
+  background: white;
+}
+.article-layout {
+  /* Layout de grid: sidebar à esquerda, texto à direita */
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Sidebar - A barra lateral esquerda */
+.article-sidebar {
+  position: sticky; /* Fica fixa ao rolar a página */
+  top: 100px;
+  height: fit-content;
+}
+.table-of-contents {
+  /* A caixa do "Índice" */
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  border-left: 4px solid #ff6b35;
+}
+.table-of-contents h3 {
+  /* Título "Índice" */
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.toc-list,
+.toc-list li,
+.toc-list a {
+  /* A lista de links do índice */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #666;
+  text-decoration: none;
+}
+.sidebar-banner {
+  /* Os banners promocionais na sidebar */
+  background: linear-gradient(135deg, #ff6b35, #ff8c42);
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+}
+.banner-btn {
+  /* Botão dentro dos banners */
+  background: white;
+  color: #ff6b35;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Article Main Content - O conteúdo principal do post */
+.article-main {
+  max-width: 700px;
+}
+.article-text {
+  /* Estilos gerais para o texto do artigo */
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+.article-text .lead {
+  /* O primeiro parágrafo com destaque */
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #ff6b35;
+}
+.article-text h2,
+.article-text h3 {
+  /* Estilos para subtítulos H2 e H3 */
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 40px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ff6b35;
+}
+.article-text p,
+.article-text ul,
+.article-text ol,
+.article-text li {
+  /* Estilos para parágrafos e listas */
+  margin-bottom: 20px;
+}
+.article-text strong {
+  /* Estilo para texto em negrito */
+  color: #ff6b35;
+  font-weight: 600;
+}
+
+/* =================================================================== */
+/* ### ESTILOS PARA TABELAS DENTRO DOS ARTIGOS ### */
+/* =================================================================== */
+
+/* Estilo geral para a tabela */
+.article-text table {
+  width: 100%; /* Faz a tabela ocupar toda a largura disponível */
+  border-collapse: collapse; /* Remove o espaçamento duplo entre as células */
+  margin: 30px 0; /* Adiciona um espaço antes e depois da tabela */
+  font-size: 15px; /* Define um tamanho de fonte legível para a tabela */
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil */
+  border-radius: 8px; /* Arredonda as bordas da tabela */
+  overflow: hidden; /* Garante que o conteúdo respeite as bordas arredondadas */
+}
+
+/* Estilo para as células do cabeçalho (th) e do corpo (td) */
+.article-text th,
+.article-text td {
+  padding: 12px 15px; /* Adiciona espaçamento interno (O MAIS IMPORTANTE PARA O SEU PROBLEMA) */
+  text-align: left; /* Alinha o texto à esquerda */
+  border-bottom: 1px solid #dddddd; /* Adiciona uma linha sutil separando as linhas */
+}
+
+/* Estilo específico para o cabeçalho da tabela (th) */
+.article-text th {
+  background-color: #ff6b35; /* Cor de fundo laranja, combinando com o tema */
+  color: white; /* Cor do texto do cabeçalho */
+  font-weight: 600; /* Deixa o texto do cabeçalho em negrito */
+  text-transform: uppercase; /* Transforma o texto em maiúsculas */
+  letter-spacing: 0.5px; /* Adiciona um leve espaçamento entre as letras */
+}
+
+/* Estilo para as linhas pares da tabela (efeito "zebra") */
+.article-text tr:nth-of-type(even) {
+  background-color: #f8f9fa; /* Cor de fundo um pouco mais escura para linhas pares */
+}
+
+/* Remove a borda da última linha para um acabamento mais limpo */
+.article-text tr:last-of-type td {
+  border-bottom: none;
+}
+
+/* Efeito de hover: destaca a linha quando o mouse passa por cima */
+.article-text tr:hover {
+  background-color: #ffe8d6; /* Cor de destaque laranja claro */
+  cursor: default; /* Mantém o cursor padrão */
+}
+
+/* Inline Banners - Os banners que aparecem no meio do texto */
+.inline-banner {
+  background: linear-gradient(135deg, #fff5f0 0%, #ffe8d6 100%);
+  border: 2px solid #ff6b35;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 40px 0;
+}
+.inline-banner .banner-content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Author Section - A caixa "Sobre o Autor" no final do artigo */
+.author-section {
+  padding: 60px 0;
+  background: #f8f9fa;
+}
+.author-card {
+  /* A caixa branca que contém as informações */
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.author-avatar-large img {
+  /* O avatar grande do autor */
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+.author-details h3,
+.author-details h4,
+.author-details p {
+  /* Textos dentro da caixa do autor */
+  /* ... */
+}
+.author-social {
+  /* Botões de redes sociais */
+  display: flex;
+  gap: 15px;
+}
+.social-btn {
+  /* Estilo geral dos botões sociais */
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.social-btn.youtube,
+.social-btn.instagram {
+  /* Cores específicas */
+  /* ... */
+}
+
+/* Related Articles - A seção "Artigos Relacionados" */
+.related-articles {
+  padding: 80px 0;
+  background: white;
+}
+.related-grid {
+  /* Layout em grid para os 3 artigos */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.related-card {
+  /* O card de cada artigo relacionado */
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.related-image img {
+  /* Imagem do card */
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.related-content {
+  /* Conteúdo de texto do card */
+  padding: 25px;
+}
+.related-link {
+  /* Link "Ler artigo" */
+  color: #ff6b35;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ===== Fim do Bloco de Estilos para Artigos Individuais ===== */
+
+/* =================================================================== */
+/* ### CORREÇÃO 1: BANNER LATERAL (SIDEBAR) ### */
+/* =================================================================== */
+
+/* Transforma o conteúdo do banner em um contêiner flexível */
+.sidebar-banner .banner-content {
+  display: flex;
+  flex-direction: column; /* Organiza os itens em uma coluna (um em cima do outro) */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  gap: 10px; /* Adiciona um pequeno espaço entre os itens */
+}
+
+/* Garante que o parágrafo não fique muito largo */
+.sidebar-banner p {
+  margin-bottom: 5px; /* Reduz a margem inferior do parágrafo */
+}
+
+/* Estilo do botão dentro do banner */
+.sidebar-banner .banner-btn {
+  margin-top: 5px; /* Adiciona um espaço acima do botão */
+}
+
+/* =================================================================== */
+/* ### CORREÇÃO 2: RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS ### */
+/* =================================================================== */
+
+/* Regras que se aplicam a telas com largura máxima de 1024px (tablets e celulares) */
+@media (max-width: 1024px) {
+  /* Muda o layout principal do artigo de duas colunas para uma */
+  .article-layout {
+    grid-template-columns: 1fr; /* Apenas uma coluna que ocupa todo o espaço */
+    gap: 40px;
+  }
+
+  /* A sidebar não fica mais 'grudada' na lateral ao rolar */
+  .article-sidebar {
+    position: static;
+    order: -1; /* Faz a sidebar (com o banner) aparecer ANTES do conteúdo principal */
+  }
+
+  /* =================================================================== */
+  /* ### CORREÇÃO 2: O ÍNDICE AGORA APARECE NO MOBILE ### */
+  /* Removemos a regra 'display: none;' e garantimos que ele se comporte bem. */
+  /* =================================================================== */
+  .table-of-contents {
+    margin-bottom: 40px; /* Adiciona um bom espaço abaixo do índice */
+  }
+}
+
+/* Regras para telas com largura máxima de 768px (Celulares) */
+@media (max-width: 768px) {
+  /* Ajusta o tamanho da fonte do título principal para caber melhor na tela */
+  .article-header .article-title {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  /* =================================================================== */
+  /* ### CORREÇÃO 1: O HEADER DO ARTIGO AGORA É RESPONSIVO ### */
+  /* =================================================================== */
+  .article-meta {
+    flex-direction: column; /* Organiza autor e stats em uma coluna */
+    align-items: flex-start; /* Alinha ambos os blocos à esquerda */
+    gap: 20px; /* Adiciona um espaço entre o bloco do autor e o de stats */
+  }
+
+  /* Reduz a altura da imagem principal para economizar espaço vertical */
+  .article-hero-image img {
+    height: 250px;
+  }
+
+  /* Ajusta os banners que ficam no meio do texto para o layout de coluna */
+  .inline-banner .banner-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  /* Ajusta a caixa "Sobre o Autor" para o layout de coluna */
+  .author-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+  }
+
+  /* Faz os artigos relacionados ocuparem a largura total, um por linha */
+  .related-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
